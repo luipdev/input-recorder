@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "input-recorder"
+version = "2.0.0"
+description = "Record keyboard and mouse input, replay it, or turn it into a Python script."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Fredy Portilla" }]
+dependencies = []
+
+[project.optional-dependencies]
+record = ["pynput>=1.7"]
+dev = ["pytest>=8"]
+
+[project.scripts]
+input-recorder = "input_recorder.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
